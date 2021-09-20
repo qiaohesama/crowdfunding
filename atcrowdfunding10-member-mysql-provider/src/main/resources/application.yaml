@@ -1,0 +1,17 @@
+server:
+  port: 2000
+spring:
+  application:
+    name: mnnu-crowd-mysql-provider
+  datasource:
+    druid:
+      username: root
+      password: aer9spie
+      url: jdbc:mysql://127.0.0.1:3306/project_crowd?serverTimezone=UTC
+      driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+mybatis:
+  mapper-locations: classpath:./mapper/*Mapper.xml

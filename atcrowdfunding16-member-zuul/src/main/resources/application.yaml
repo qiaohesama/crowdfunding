@@ -1,0 +1,36 @@
+server:
+  port: 80
+spring:
+  session:
+    store-type: redis  #指定共享session使用的技术
+  application:
+    name: mnnu-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+zuul:
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  ignored-services: "*"
+  sensitive-headers: "*"
+  routes:
+    mnnu-crowd-auth-consumer:
+      service-id: mnnu-crowd-auth-consumer
+      path: /**
+    mnnu-crowd-project-consumer:
+      service-id: mnnu-crowd-project-consumer
+      path: /project/**
+    mnnu-crowd-order-consumer:
+      service-id: mnnu-crowd-order-consumer
+      path: /order/**
+    mnnu-crowd-pay-consumer:
+      service-id: mnnu-crowd-pay-consumer
+      path: /pay/**
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+  eureka:
+    enabled: true
+

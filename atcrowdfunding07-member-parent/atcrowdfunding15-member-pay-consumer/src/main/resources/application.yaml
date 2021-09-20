@@ -1,0 +1,21 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: mnnu-crowd-pay-consumer
+  session:
+    store-type: redis
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+ali:
+  pay:
+    appId: 2021000118611661
+    merchantPrivateKey: MIIEwAIBADANBgkqhkiG9w0BAQEFAASCBKowggSmAgEAAoIBAQDRMi454YW/qoOuO549Dud2yGeJ8mxkn5QX87+8nbJmRcpVVtjulsBEUu4GmR+9yNGQxmUOcVrFfb45bW5rx4V8Gb6QXM/xM+s8TZpXTy0OQVZpCkjRZ4USJFndfckDvp8pre8DPZx7QDFjGhByHA797rhoHnctVY1gTGCOMo9pbLpSG7WwfYGuOyz+Q7TWuWzHZaX+ApF+aNtBt7hxWx9Taz3I8GSoUkgjYr4w5jIaLkCWogv+b9OgaQGfmh14LiBMmChAC9KtQEt9S3xDcxfxKNf9GVz4p1cZbf2eZN9ev1aBfOjH//kZ6pXxtaUtTaRaglmLY5P7dJVzy828LwPRAgMBAAECggEBAJlNt9iM77IM6GEXqZe/Q1ql9FKASHTZCPMgmoND4YfXXzZ45ZK7AP1Q9MP7FOrErub0rPwPj+CojG2TR1dOqQDP8PnkOjLdxGa1zARtrmwC76sccU6cGUW5Q+3wDw5idEtb/osWbIVZ/pdMc37cFxR6C8Oph9a+GlPWxO+QF86+Hv7SCdgxDihS0lR1Y21Gftm/AWAlanYjK/A5dFKUt9qCvPFSFBsMX2dC/gcTDFG462nUAlOCnUIJTw85YjHMq10IsgGq3gPyUNLumRAtrt8QxDNp8H8XI6lksFv2L2pR/T0+iHBSbDeNmOlCO+GZOOmC2GTwH8QNiqfqfc+A7P0CgYEA6XdaUTn2LAsnHBguzKQ966qW5VCIWznjOEO0KF1Uv5z6K/ulOacrfMevBlFVYQGoObGSuH40xbOTjXweHxbPQ9hApaAtb4Rtu2HxHTwvadaqMhz2RlJrI43CexXGyfvzfSWb7ATT/Z72H7egvpMbaJ3FRIkNDS9XEil+/dqGbssCgYEA5WMkfY/0cy+2zDMtAY4uPDIB08ff04Uvr0QRg8PUbSN4dHiwwFEx02SaANAxTkTvQ1TZyZd6AcNfFnXg2MID/R1w6hb1sBvyr0sW2Lc9zOtkeX6EPVjxIVbzed+syxKx96Dt4hRaggoWCP47W8DZ7EeFP0/T4FR8JNLXU9xQSFMCgYEA5ezcbwh1T7UAJGQQmwvZy6GqkFZ6o9Vj2IKdB++6yibwHqbrdtcTNgV2cvNg8XNvWLpwM/BfSqFrXLjy9U1CfJ+aM0OH278BTrzLeC5Qx5xY65eoV2NODqrK8OtmZoASsZp7b7rliG6oGF6BGY7JPIO8xp1u1CBeUQ26+ojfQncCgYEAtrWudhj4w9rohmPo4ElIyIeobvDQdqGqZrcYIFUWWcwcAOG1H6pMvq1uAWHTNB2yWnY2dt0hwE/G6JQCAYUgOjd+Hecl0R2hw0BTNVFXd2azhBZi7J5winbAvn2MG8CLYsubTy2ZHeU8wfMGgsHsksgw+UnzYMbKj2YlP1XH2KMCgYEA4QjeHeH7o0RZvgq+VbrKUU+9lFDKZz0LGaiDTZZDG/+hpdSKaI4rtPeEsvGjtrzGdSDz8CWzsmiOuACFr28O8Y00CT7GxWe0oFaIJ5wEo1wS42eQR0XWSIj9kR0Kk4stsxzKo04z0oNbyr/yW4NZLkBTuI5Kta16MF06Ox1irrE=
+    alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoDB/2ZS8MR9zKz5MJ0FKNAIzt7NLrNa7i/PFwEjNv4ADtz7k1YNaQ6aoeNVj3LQcBi5JVXYsiUzjGxmP3r+WflwFCnMq9BaccXc20ceZ+YNbqh8u8CpTHmREza96cJgl0wpyRo/Ov1bHcGKodElMJcPL+qeKkH6UxfJIu/QsRqZvCMGe+AYyUu+4NPzen+KqoO+74+zeUUq/12POd9oO1vJLa26PkL8CFvxd1eABNr0A9x4BJP9DBRfLjdle8mqCh5ndfA7pTqw0n4Hg8n58wg1GUFOYS7vMbeRv7G8yRkQHE8gSkMvRA+r1Qn6nAZnjrBEG5RfFSwudW6G5WEyO4QIDAQAB
+    charset: utf-8
+    gatewayUrl: https://openapi.alipaydev.com/gateway.do
+    signType: RSA2
+    notify-url: http://tnmhu9.natappfree.cc/pay/notify        #这两个参数的值和外网访问本应用的地址有关，等启动内网穿透后再添加
+    return-url: http://localhost/pay/return                   #这个由支付宝让浏览器去访问

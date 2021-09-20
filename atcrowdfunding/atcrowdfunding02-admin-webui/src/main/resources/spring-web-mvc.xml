@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.mnnu.crowd.mvc"/>
+
+    <!--开启注解驱动，区分资源请求和控制器请求-->
+    <mvc:annotation-driven/>
+    <!--将静态资源请求交还给tomcat处理-->
+    <mvc:default-servlet-handler/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+        <property name="prefix" value="/WEB-INF/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--    基于xml的错误映射，，映射到具体页面-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"
+          id="simpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">system-error</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--替代了简单的控制器跳转页面-->
+    <mvc:view-controller path="/" view-name="admin-login"/>
+    <mvc:view-controller path="/admin/to/login/page" view-name="admin-login"/>
+    <mvc:view-controller path="/admin/to/main/page" view-name="main"/>
+    <mvc:view-controller path="/admin/to/addAdmin/page" view-name="add"/>
+    <mvc:view-controller path="/role/to/page" view-name="role"/>
+    <mvc:view-controller path="/menu/to/page" view-name="permission"/>
+
+    <!--登录的请求交给spring security处理-->
+    <!--    <mvc:interceptors>-->
+    <!--        <mvc:interceptor>-->
+    <!--            &lt;!&ndash;/*匹配一层路径&ndash;&gt;-->
+    <!--            &lt;!&ndash;/**匹配多层路径&ndash;&gt;-->
+    <!--            <mvc:mapping path="/**"/>-->
+    <!--            <mvc:exclude-mapping path="/"/>-->
+    <!--            <mvc:exclude-mapping path="/**/*.js"/>-->
+    <!--            <mvc:exclude-mapping path="/**/*.css"/>-->
+    <!--            <mvc:exclude-mapping path="/**/*.html"/>-->
+    <!--            <mvc:exclude-mapping path="/fonts/**"/>-->
+    <!--            <mvc:exclude-mapping path="/bootstrap/**"/>-->
+
+    <!--            <mvc:exclude-mapping path="/admin/to/login/page"/>-->
+    <!--            <mvc:exclude-mapping path="/admin/do/login"/>-->
+    <!--            <mvc:exclude-mapping path="/admin/do/logout"/>-->
+    <!--            <bean id="loginInterceptor" class="com.mnnu.crowd.mvc.interceptor.LoginInterceptor"/>-->
+    <!--        </mvc:interceptor>-->
+    <!--    </mvc:interceptors>-->
+</beans>

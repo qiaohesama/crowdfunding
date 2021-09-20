@@ -1,0 +1,18 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: mnnu-crowd-project-consumer
+  session:
+    store-type: redis
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+aliyun:
+  oss:
+    endPoint: http://oss-cn-shenzhen.aliyuncs.com
+    bucketName: qiaohe-crowd
+    bucketDomain: http://qiaohe-crowd.oss-cn-shenzhen.aliyuncs.com
+    accessKeyId: LTAI5tCpbyiuQpj3TqQ6CNmh
+    accessKeySecret: rjJCXlRxUoUOSArdJNS5pyHHutBxYI

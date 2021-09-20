@@ -1,0 +1,29 @@
+server:
+  port: 4000
+spring:
+  session:
+    store-type: redis
+  application:
+    name: mnnu-crowd-auth-consumer
+  mail:
+    host: smtp.163.com
+    username: qiaohesama@163.com
+    password: aer9spie
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+
+
+
